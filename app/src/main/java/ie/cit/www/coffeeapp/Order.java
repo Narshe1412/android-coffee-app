@@ -2,13 +2,14 @@ package ie.cit.www.coffeeapp;
 
 public class Order {
 
+    private final int COFFEE_PRICE = 200;
     private String customerName;
     private boolean cbCream = false;
     private boolean cbChocolate = false;
     private int quantity = 0;
 
-    public Order(String customerName) {
-        this.customerName = customerName;
+    public Order() {
+
     }
 
     /**
@@ -56,9 +57,16 @@ public class Order {
     }
 
     public int decreaseQuantity() {
-        if (quantity > 0) {
+        if (quantity >1) {
             quantity--;
         }
         return quantity;
+    }
+
+    public String getOrderSummary() {
+        return "Order summary:" +
+                "\nTotal amount of coffees: " + quantity +
+                "\nPrice per coffee" + COFFEE_PRICE +
+                "\nOrder total = " + COFFEE_PRICE * quantity / 100 + " EUR";
     }
 }
